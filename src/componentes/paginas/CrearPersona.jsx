@@ -8,6 +8,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { useNavigate } from 'react-router-dom';
 import { guardar } from '../../funciones/Funciones'
 import toast, { Toaster } from 'react-hot-toast';
+import { Cargando } from '../elementos/Cargando';
 
 export const CrearPersona = () => {
 
@@ -19,6 +20,7 @@ export const CrearPersona = () => {
         apodo: '',
         email: ''
     });
+    const [carga, setCarga] = React.useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,7 +29,9 @@ export const CrearPersona = () => {
 
     const guardarDatos = async(e) => {
         e.preventDefault();
+        setCarga(true);
         const result = await guardar(formData);
+        
         if(result.status == "success"){
             toast.success(result.message);
             setFormData(
@@ -38,6 +42,7 @@ export const CrearPersona = () => {
                     email: ''
                 }
             );
+            setCarga(false);
         }else{
             toast.error(result.message);
         }   
@@ -53,6 +58,9 @@ export const CrearPersona = () => {
                 position="top-right"
                 reverseOrder={false}
             />
+            <Grid container spacing={2} justifyContent="center" alignItems="center">
+                {carga && <Cargando />}
+            </Grid>
             <Container maxWidth="sm">
                 <Box sx={{ marginTop: 4 }}>
                     <Typography variant="h4" gutterBottom>

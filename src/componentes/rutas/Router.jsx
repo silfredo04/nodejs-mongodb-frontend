@@ -4,6 +4,7 @@ import { PublicLayout } from '../layout/PublicLayout';
 import { Inicio } from '../paginas/Inicio';
 import { CrearPersona } from '../paginas/CrearPersona';
 import { ListarPersona } from '../paginas/ListarPersona';
+import { EditarPersona } from '../paginas/EditarPersona';
 
 export const Router = () => {
   return (
@@ -15,6 +16,7 @@ export const Router = () => {
             <Route path='inicio' element={<Inicio/>}/>
             <Route path='crear' element={<CrearPersona/>}/>
             <Route path='listar' element={<ListarPersona/>}/>
+            <Route path='/editar/:id' element={<EditarPersona/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

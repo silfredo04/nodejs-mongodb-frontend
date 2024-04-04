@@ -10,8 +10,8 @@ export const Inicio = () => {
     return (
         <>
             <Box sx={{ width: '100%', maxWidth: 500 }}>
-                <Typography variant="h1" gutterBottom>
-                    MENÚ
+                <Typography variant="h3" gutterBottom>
+                    MENU
                 </Typography>
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                     <Grid xs={6}>
@@ -19,7 +19,7 @@ export const Inicio = () => {
                           titulo = "Crear Persona"
                           descripcion = "En este panel puedes crear la cantidad de persona que desees."
                           img = {crear_personas}
-                          ruta = 'crear'
+                          ruta = '/crear'
                         />
                     </Grid>
                     <Grid xs={6}>
@@ -27,7 +27,7 @@ export const Inicio = () => {
                           titulo = "Listar Persona"  
                           descripcion = "En este panel puedes listar las personas creadas para gestionar."
                           img = {listar_personas}
-                          ruta = 'listar'
+                          ruta = '/listar'
                         />
                     </Grid>
                 </Grid>
